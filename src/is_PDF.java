@@ -1,5 +1,5 @@
 public class is_PDF{
-    static String extension = "";
+    private static String extension = "";
     public static boolean check_pdf_ext(String fileName){
         extension = checkfile.get_file_ext(fileName);
         //System.out.println(extension);
