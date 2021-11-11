@@ -2,10 +2,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.LinkedList;
 import java.util.Scanner;
-public class ReadCsvFile {
+
+public class ReadCSVFile{
     private LinkedList<student_info> studentInfo;
 
-    public ReadCsvFile(){
+    public ReadCSVFile(){
         studentInfo = new LinkedList<student_info>();
     }
 
