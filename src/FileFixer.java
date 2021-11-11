@@ -1,6 +1,8 @@
 public class FileFixer {
     public static void main(String[] args) {
-        createDirectory.newDirectory();
-        FileHandler.getFiles();
+        directoryHandler directory = new Directory();
+
+        directory.newDirectory("filesToRename/renamedFiles");
+        directory.getDirectoryFiles("filesToRename");
     }
 }
