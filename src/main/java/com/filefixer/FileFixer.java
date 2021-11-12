@@ -8,25 +8,25 @@ import java.util.List;
 
 public class FileFixer {
     public static void main(String[] args) {
-        directoryHandler directory = new Directory();
-        csvHandler csv = new CSV();
-        pdfHandler pdfHandler = new PDF();
+        Directory directoryHandler = new directoryHandler();
+        CSV csvHandler = new csvHandler();
+        PDF pdfHandler = new pdfHandler();
         List<student> student_info = new ArrayList<student>();
         Collection<File> pdfFiles;
 
-        directory.newDirectory("filesToRename/renamedFiles");
-        pdfFiles = directory.get_PDFs("filesToRename");
+        directoryHandler.newDirectory("filesToRename/renamedFiles");
+        pdfFiles = directoryHandler.get_PDFs("filesToRename");
         
         try {
-            csv.loadStudentInfo("filesToRename/Sample 5 CSV.csv");
+            csvHandler.loadStudentInfo("filesToRename/Sample 5 CSV.csv");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
 
-        student_info = csv.getStudentInfo();
+        student_info = csvHandler.getStudentInfo();
 
         for(File pdf: pdfFiles){
-            pdfHandler.parse_PDFs(pdf, student_info);
+            pdfHandler.PDF_name_parse(pdf, student_info);
         }
     }
 }
