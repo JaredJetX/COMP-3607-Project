@@ -12,9 +12,9 @@ public class PDF implements pdfHandler{
     public void parse_PDFs(File pdf, List<student> student_info) {
         for (student o: student_info){
             if(pdf.getName().contains(o.getstudent_ID())){
-                move_PDFs(pdf, o);
+                move_PDFs(pdf, o); return;
             }else if(pdf.getName().contains(o.getName())){
-                move_PDFs(pdf, o);
+                move_PDFs(pdf, o); return;
             }
         }  
     }
