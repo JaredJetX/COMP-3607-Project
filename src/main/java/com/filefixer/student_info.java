@@ -1,14 +1,19 @@
 package com.filefixer;
 
 public class student_info implements student {
+    private String participant_ID;
     private String name;
-    private String ID;
-    private String email;
+    private String student_ID;
     
-    public student_info(String name, String ID, String email){
+    public student_info(String participant_ID, String name, String student_ID){
+        this.participant_ID = participant_ID;
         this.name = name;
-        this.ID = ID;
-        this.email = email;
+        this.student_ID = student_ID;
+    }
+
+    @Override
+    public String getparticipant_ID() {
+        return participant_ID;
     }
 
     @Override
@@ -17,12 +22,7 @@ public class student_info implements student {
     }
 
     @Override
-    public String getID() {
-        return ID;
-    }
-
-    @Override
-    public String getEmail() {
-        return email;
+    public String getstudent_ID() {
+        return student_ID;
     }
 }

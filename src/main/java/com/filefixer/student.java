@@ -1,7 +1,7 @@
 package com.filefixer;
 
 public interface student {
+    public String getparticipant_ID();
     public String getName();
-    public String getID();
-    public String getEmail();
+    public String getstudent_ID();
 }
