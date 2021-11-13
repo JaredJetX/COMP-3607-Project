@@ -1,7 +1,6 @@
 package com.filefixer;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -9,19 +8,15 @@ import java.util.List;
 public class FileFixer {
     public static void main(String[] args) {
         Directory directoryHandler = new directoryHandler();
-        CSV csvHandler = new csvHandler();
-        PDF pdfHandler = new pdfHandler();
+        CSV csvHandler = new csvHandler(new csvCollection());
+        PDF pdfHandler = new pdfHandler(new pdfCollection());
         List<student> student_info = new ArrayList<student>();
         Collection<File> pdfFiles;
 
         directoryHandler.newDirectory("filesToRename/renamedFiles");
-        pdfFiles = directoryHandler.get_PDFs("filesToRename");
-        
-        try {
-            csvHandler.loadStudentInfo("filesToRename/Sample 5 CSV.csv");
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+
+        pdfFiles = pdfHandler.get_PDFs("filesToRename");
+        csvHandler.getCSVfile("filesToRename");
 
         student_info = csvHandler.getStudentInfo();
 

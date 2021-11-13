@@ -2,11 +2,25 @@ package com.filefixer;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Collection;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 
 public class pdfHandler implements PDF{
+
+    fileCollection fileCollectionStrategy;
+
+    public pdfHandler(fileCollection fileCollectionStrategy){
+        this.fileCollectionStrategy = fileCollectionStrategy;
+    }   
+    
+    @Override
+    public Collection<File> get_PDFs(String path) {
+        Collection<File> pdfCollection = fileCollectionStrategy.get_Files(path);
+
+        return pdfCollection;
+    }
 
     @Override
     public void PDF_name_parse(File pdf, List<student> student_info) {
