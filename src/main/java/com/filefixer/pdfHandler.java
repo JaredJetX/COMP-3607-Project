@@ -7,9 +7,10 @@ import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 
-public class pdfHandler implements PDF{
+public class pdfHandler implements batchPDFmanipulator{
 
     fileCollection fileCollectionStrategy;
+    filePATHhandler PATH = new destinationPATH();
 
     public pdfHandler(fileCollection fileCollectionStrategy){
         this.fileCollectionStrategy = fileCollectionStrategy;
@@ -38,17 +39,9 @@ public class pdfHandler implements PDF{
         try {
             FileUtils.moveFile(
             FileUtils.getFile(pdf.getPath()), 
-            FileUtils.getFile(create_destinationPATH(pdf, student)));
+            FileUtils.getFile(PATH.create_PATH(pdf, student)));
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    @Override
-    public String create_destinationPATH(File pdf, student student) {
-        String destinationString = "filesToRename/renamedFiles/" + student.getName() + "_" + 
-        student.getparticipant_ID().replace("Participant ", "") +
-        "_assignsubmission_file_" + pdf.getName();
-        return destinationString;
     }
 }

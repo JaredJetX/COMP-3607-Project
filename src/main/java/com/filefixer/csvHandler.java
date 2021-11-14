@@ -15,7 +15,7 @@ public class csvHandler implements CSV{
         this.fileCollectionStrategy = fileCollectionStrategy;
     }   
 
-    public void getCSVfile(String path){
+    public void get_CSV_file(String path){
         Collection<File> csvCollection = fileCollectionStrategy.get_Files(path);
         File chosen_file = csvCollection.iterator().next();
 

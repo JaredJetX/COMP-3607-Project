@@ -8,15 +8,17 @@ import java.util.List;
 public class FileFixer {
     public static void main(String[] args) {
         Directory directoryHandler = new directoryHandler();
+
         CSV csvHandler = new csvHandler(new csvCollection());
-        PDF pdfHandler = new pdfHandler(new pdfCollection());
+        batchPDFmanipulator pdfHandler = new pdfHandler(new pdfCollection());
+        
         List<student> student_info = new ArrayList<student>();
         Collection<File> pdfFiles;
 
         directoryHandler.newDirectory("filesToRename/renamedFiles");
 
         pdfFiles = pdfHandler.get_PDFs("filesToRename");
-        csvHandler.getCSVfile("filesToRename");
+        csvHandler.get_CSV_file("filesToRename");
 
         student_info = csvHandler.getStudentInfo();
 
