@@ -6,12 +6,12 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Scanner;
 
-public class csvHandler implements CSV{
+public class CSVmanipulator implements CSVmanipulatorINTERFACE{
     private List<student> student_info = new ArrayList<student>();
 
-    fileCollection fileCollectionStrategy;
+    fileCollectionINTERFACE fileCollectionStrategy;
 
-    public csvHandler(fileCollection fileCollectionStrategy){
+    public CSVmanipulator(fileCollectionINTERFACE fileCollectionStrategy){
         this.fileCollectionStrategy = fileCollectionStrategy;
     }   
 
@@ -39,7 +39,7 @@ public class csvHandler implements CSV{
             while (data.hasNext()){
                 all_info = data.nextLine();
                 String[] studentData = all_info.split("\\,");
-                student_info.add(new student_info(studentData[0], studentData[1], studentData[2]));
+                student_info.add(new student(studentData[0], studentData[1], studentData[2]));
             }  
 
             data.close();

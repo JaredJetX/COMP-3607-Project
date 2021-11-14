@@ -7,10 +7,10 @@ import java.util.List;
 
 public class FileFixer {
     public static void main(String[] args) {
-        Directory directoryHandler = new directoryHandler();
+        directoryHandlerINTERFACE directoryHandler = new directoryHandler();
 
-        CSV csvHandler = new csvHandler(new csvCollection());
-        batchPDFmanipulator pdfHandler = new pdfHandler(new pdfCollection());
+        CSVmanipulatorINTERFACE csvHandler = new CSVmanipulator(new csvCollection());
+        batchPDFmanipulatorINTERFACE pdfHandler = new batchPDFmanipulator(new pdfCollection());
         
         List<student> student_info = new ArrayList<student>();
         Collection<File> pdfFiles;

@@ -4,7 +4,7 @@ package com.filefixer;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-public class directoryHandler implements Directory{
+public class directoryHandler implements directoryHandlerINTERFACE{
 
     public void newDirectory(String path){
         try{
