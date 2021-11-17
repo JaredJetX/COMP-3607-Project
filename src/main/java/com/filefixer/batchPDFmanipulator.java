@@ -28,7 +28,9 @@ public class batchPDFmanipulator implements batchPDFmanipulatorINTERFACE{
         for (student o: student_info){
             if(pdf.getName().contains(o.getstudent_ID())){
                 move_PDFs(pdf, o); return;
-            }else if(pdf.getName().contains(o.getName())){
+            }else if((pdf.getName().contains(o.getName().toUpperCase())) || (pdf.getName().contains(o.getName().toLowerCase())) || (pdf.getName().contains(o.getName()))){
+                move_PDFs(pdf, o); return;
+            }else if(pdf.getName().contains(o.getName().replaceAll("\\s","")) || pdf.getName().contains(o.getName().replaceAll(" ","_"))){
                 move_PDFs(pdf, o); return;
             }
         }  
